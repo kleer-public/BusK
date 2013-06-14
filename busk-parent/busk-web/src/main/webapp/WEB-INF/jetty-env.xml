@@ -5,8 +5,8 @@
 <Configure class="org.eclipse.jetty.webapp.WebAppContext">
 
 	<New id="myapp" class="org.eclipse.jetty.plus.jndi.EnvEntry">
-		<Arg>todolist/url</Arg>
-		<Arg type="java.lang.String">http://gltodolist.herokuapp.com</Arg>
+		<Arg>busk/url</Arg>
+		<Arg type="java.lang.String">http://busk.herokuapp.com/</Arg>
 	</New>
 	
 	<New id="dbhbmDialect" class="org.eclipse.jetty.plus.jndi.EnvEntry">
@@ -23,22 +23,24 @@
 	
 	<New id="dbtype" class="org.eclipse.jetty.plus.jndi.EnvEntry">
 		<Arg>db/type</Arg>
-		<Arg type="java.lang.String">postgresql</Arg>
+		<Arg type="java.lang.String">hsql</Arg>
+<!--		<Arg type="java.lang.String">postgresql</Arg>-->
 	</New>
 
 	<New id="dbdriver" class="org.eclipse.jetty.plus.jndi.EnvEntry">
 		<Arg>db/jdbcDriver</Arg>
-		<Arg type="java.lang.String">org.postgresql.Driver</Arg>
+		<Arg type="java.lang.String">org.hsqldb.jdbc.JDBCDriver</Arg>
+<!--			<Arg type="java.lang.String">org.postgresql.Driver</Arg>-->
 	</New>
 
 	<New id="dburl" class="org.eclipse.jetty.plus.jndi.EnvEntry">
 		<Arg>db/url</Arg>
-		<Arg type="java.lang.String">
-			<Call class="java.lang.System" name="getProperty">
-				<Arg>database_url</Arg>
-			</Call>
-		</Arg>
+		<Arg type="java.lang.String">jdbc:hsqldb:mem:todolist</Arg>
 		<!-- 
+			<Call class="java.lang.System" name="getProperty">
+				<Arg>jdbc:hsqldb:mem:todolist</Arg>
+
+		database_url
 		HSQL: jdbc:hsqldb:mem:todolist 
 		Postgres: postgres://todolist:todolist@eze3-dnn-00513:5432/todolist
 		-->
