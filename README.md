@@ -1,10 +1,27 @@
 Busk
 ====
 
-BusK es una aplicaci髇 mobile social que permite conocer recorridos del transporte p鷅lico a partir de la informaci髇 que suben los usuarios en tiempo real.
+BusK es una aplicaci贸n social para dispositivos m贸viles que permite conocer los recorridos del transporte p煤blico de pasajeros a partir de informaci贸n suministrada por los mismos usuarios.
+Busk cuenta con funcionalidades que le ayudar谩n a determinar qu茅 l铆nea de colectivo lo llevar谩 a su destino en el menor tiempo posible.
+
+Busk determina la parada mas cercana al lugar en que se encuentra el usuario y qu茅 l铆nea lo llevar谩 a su destino. Adem谩s, le informar谩 la ubicaci贸n del colectivo mas cercano, sumado a una estimaci贸n del tiempo de espera. Una vez en la unidad, le indicar谩 cuando debe  descender de la misma.
+
+Una de las mas notables funcionalidades de Busk, es que son los propios usuarios de la aplicaci贸n quienes generan los recorridos y la ubicaci贸n de las paradas.
+
+F /BusK.transporte
+T @busktransporte
 
 
-git clone https://github.com/kleer-public/BusK.git
+Fuera de Alcance:
+- Transbordo en lineas
+
+
+
+conocer el recorrido de cualquier linea de transporte. Saber 
+
+git clone 
+https://github.com/kleer-public/BusK.git
 
 mvn eclipse:eclipse
+
 

@@ -11,7 +11,8 @@
 	
 	<New id="dbhbmDialect" class="org.eclipse.jetty.plus.jndi.EnvEntry">
 		<Arg>db/hbmDialect</Arg>
-		<Arg type="java.lang.String">org.hibernate.dialect.PostgreSQLDialect</Arg>
+		<Arg type="java.lang.String">org.hibernate.dialect.HSQLDialect</Arg>
+<!--		<Arg type="java.lang.String">org.hibernate.dialect.HSQLDialectorg.hibernate.dialect.PostgreSQLDialect</Arg>-->
 	</New>
 	
 	<New id="dbshowql" class="org.eclipse.jetty.plus.jndi.EnvEntry">
@@ -35,7 +36,7 @@
 
 	<New id="dburl" class="org.eclipse.jetty.plus.jndi.EnvEntry">
 		<Arg>db/url</Arg>
-		<Arg type="java.lang.String">jdbc:hsqldb:mem:busk</Arg>
+		<Arg type="java.lang.String">hsqldb://sa:blank@mem:0/busk</Arg>
 		<!-- 
 			<Call class="java.lang.System" name="getProperty">
 				<Arg>jdbc:hsqldb:mem:todolist</Arg>
