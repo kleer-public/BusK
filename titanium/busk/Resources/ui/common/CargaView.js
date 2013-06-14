@@ -1,66 +1,78 @@
 //FirstView Component Constructor
 function CargaView() {
+    
+    Ti.Geolocation.purpose = 'gpsPurpose';
+    Titanium.Geolocation.preferredProvider = Titanium.Geolocation.PROVIDER_NETWORK;
+    Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_BEST;
+    Titanium.Geolocation.distanceFilter = 10;
+
 	//create object instance, a parasitic subclass of Observable
-	var self = Ti.UI.createView();
+	var self = Ti.UI.createView({
+	    backgroundColor:'#ffffff'
+	});
 	
-	//label using localization-ready strings from <app dir>/i18n/en/strings.xml
-	//construct UI
-    
-    
-    // Create a Label.
-    var aLabel = Ti.UI.createLabel({
-        text : 'Grupo-Linea',
-        color : '#textColor',
-        font : 16,
-        height : 45,
-        width : 45,
-        top : 0
-    });
-    
-    // Add to the parent view.
-    self.add(aLabel);
-    
-    var textField = Ti.UI.createTextField({
+	this.latitude = Ti.UI.createTextField({
       borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
       color: '#336699',
       top: 55, left: 10,
       width: 250, height: 60
     });
-    self.add(textField);
+    self.add(this.latitude);
     
-    
-    // Create a Button.
-    var start = Ti.UI.createButton({
-        title : 'start',
+    this.longitude = Ti.UI.createTextField({
+      borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+      color: '#336699',
+      top: 155, left: 10,
+      width: 250, height: 60
+    });
+    self.add(this.longitude);
+	
+	var that = this;
+	this.push = true;
+	
+	setInterval(function(){
+	    Ti.API.log("lalala");
+    if (Titanium.Platform.model != 'google_sdk' && Titanium.Platform.model != 'Simulator') {
+            if(that.push){
+                Titanium.Geolocation.getCurrentPosition(function(e) {
+                    Ti.API.log(e);
+                    if (e.error) {
+                        that.longitude.value="error";
+                        that.latitude.value ="error";
+                        Ti.API.log("error");
+                    }
+                    else
+                    {
+                        that.longitude.value = e.coords.longitude;
+                        that.latitude.value = e.coords.latitude;
+                        Ti.API.log(e.coords);
+                    }
+                   });
+            }
+
+        }
+        else{
+            Ti.API.log("Simulador");
+        }
+        },
+        3000);
+
+    var stop = Ti.UI.createButton({
+        title : 'Stop',
         height : 45,
-        width : 45,
-         top: 120, left: 10,
+        width : 145,
+         top: 190, left: 10,
     });
     
-    // Listen for click events.
-    start.addEventListener('click', function() {
-        alert('\'start\' was clicked!');
+    stop.addEventListener('click', function() {
+       menu.show();
+       cargar.hide();
+       that.push = false;
     });
-    
-    
-    // Create a Button.
-    var end = Ti.UI.createButton({
-        title : 'end',
-        height : 45,
-        width : 45,
-         top: 170, left: 10,
-    });
-    
-    // Listen for click events.
-    end.addEventListener('click', function() {
-        alert('\'end\' was clicked!');
-    });
-    
-    // Add to the parent view.
-    self.add(end);
-    
-    // Add to the parent view.
-    self.add(start);
+	
+	self.add(stop);
+	
+	
 	
 	return self;
 }

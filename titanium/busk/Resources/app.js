@@ -13,7 +13,10 @@
 if (Ti.version < 1.8 ) {
 	alert('Sorry - this application template requires Titanium Mobile SDK 1.8 or later');	  	
 }
-
+var principal;
+var menu;
+var cargar;
+var map;
 // This is a single context application with multiple windows in a stack
 (function() {
 	//render appropriate components based on the platform and form factor
@@ -27,18 +30,7 @@ if (Ti.version < 1.8 ) {
 	var isTablet = osname === 'ipad' || (osname === 'android' && (width > 899 || height > 899));
 	
 	var Window;
-	if (isTablet) {
-		Window = require('ui/tablet/ApplicationWindow');
-	}
-	else {
-		// Android uses platform-specific properties to create windows.
-		// All other platforms follow a similar UI pattern.
-		if (osname === 'android') {
-			Window = require('ui/handheld/android/ApplicationWindow');
-		}
-		else {
 			Window = require('ui/handheld/ApplicationWindow');
-		}
-	}
-	new Window().open();
+	principal = new Window();
+	principal.open();
 })();

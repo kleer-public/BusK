@@ -1,8 +1,7 @@
 //FirstView Component Constructor
-function MenuView() {
-	//create object instance, a parasitic subclass of Observable
-	this.cargarView=null;
-	this.mostrarView=null;
+
+function MenuView(cargar) {
+	this.cargar = cargar;
 	var self = Ti.UI.createView();
 	
 	
@@ -23,9 +22,11 @@ function MenuView() {
     });
     
     // Listen for click events.
+    var that=this;
     carga.addEventListener('click', function() {
-        this.cargarView.show();
-        this.hide();
+        that.cargar.show();
+        self.hide();
+        that.cargar.push = true;
     });
     
     
@@ -39,8 +40,7 @@ function MenuView() {
     
     // Listen for click events.
     show.addEventListener('click', function() {
-        this.mostrarView.show();
-        this.hide();
+        
     });
     
     // Add to the parent view.
