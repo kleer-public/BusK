@@ -11,7 +11,8 @@
 	
 	<New id="dbhbmDialect" class="org.eclipse.jetty.plus.jndi.EnvEntry">
 		<Arg>db/hbmDialect</Arg>
-		<Arg type="java.lang.String">org.hibernate.dialect.PostgreSQLDialect</Arg>
+		<Arg type="java.lang.String">org.hibernate.dialect.HSQLDialect</Arg>
+<!--		<Arg type="java.lang.String">org.hibernate.dialect.HSQLDialectorg.hibernate.dialect.PostgreSQLDialect</Arg>-->
 	</New>
 	
 	<New id="dbshowql" class="org.eclipse.jetty.plus.jndi.EnvEntry">
