@@ -20,16 +20,16 @@
 			expression="com.gl.todolist.services.*" />
 
 		<context:include-filter type="regex"
-			expression="com.gl.todolist.repository.*" /> 
+			expression="com.gl.busk.repository.*" /> 
 			
 		<context:include-filter type="regex"
-			expression="com.gl.todolist.mail.*" />		    
+			expression="com.gl.busk.mail.*" />		    
 
 	</context:component-scan>
 
 	<bean name="appUrl" class="java.lang.String">
 		<constructor-arg>
-			<jee:jndi-lookup jndi-name="java:comp/env/todolist/url"/>
+			<jee:jndi-lookup jndi-name="java:comp/env/busk/url"/>
 		</constructor-arg>
 	</bean>
 	

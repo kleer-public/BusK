@@ -8,12 +8,12 @@
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
 	http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
 	http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
-	http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+	http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
 
 	<import resource="application-context.xml" />
 
-	<context:component-scan base-package="com.gl.todolist.web.controllers" />
+	<context:component-scan base-package="com.gl.busk.web.controllers" />
 
 	<context:annotation-config />
 
@@ -43,13 +43,13 @@
 		<property name="filterProcessesUrl" value="/login" />
 	</bean>
 
-	<bean id="restAuthenticationHandler" class="com.gl.todolist.web.security.RestAuthenticationHandler" />
+	<bean id="restAuthenticationHandler" class="com.gl.busk.web.security.RestAuthenticationHandler" />
 
 	<security:authentication-manager alias="authenticationManager" >
 		<security:authentication-provider ref="customAuthenticationProvider"  /> <!-- user-service-ref="customUserService" -->
 	</security:authentication-manager>
 	
-	<bean id="customAuthenticationProvider" class="com.gl.todolist.web.security.CustomAuthenticationProvider" />
+	<bean id="customAuthenticationProvider" class="com.gl.busk.web.security.CustomAuthenticationProvider" />
 
 	<!--	 form-login -->
 	<!--	<security:http auto-config="true"> -->
@@ -71,7 +71,7 @@
 <!---->
 	<!--
 		<bean id="restAuthenticationHandler"
-		class="com.gl.todolist.web.security.RestAuthenticationHandler" />
+		class="com.gl.busk.web.security.RestAuthenticationHandler" />
 	-->
 	<!--	-->
 	<!--	<security:authentication-manager alias="authenticationManager">-->
