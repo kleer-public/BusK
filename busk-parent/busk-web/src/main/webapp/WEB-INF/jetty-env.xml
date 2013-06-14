@@ -35,7 +35,7 @@
 
 	<New id="dburl" class="org.eclipse.jetty.plus.jndi.EnvEntry">
 		<Arg>db/url</Arg>
-		<Arg type="java.lang.String">jdbc:hsqldb:mem:todolist</Arg>
+		<Arg type="java.lang.String">jdbc:hsqldb:mem:busk</Arg>
 		<!-- 
 			<Call class="java.lang.System" name="getProperty">
 				<Arg>jdbc:hsqldb:mem:todolist</Arg>
