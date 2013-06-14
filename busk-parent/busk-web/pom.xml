@@ -81,7 +81,7 @@
 			<version>6.7</version>
 		</dependency>
 		<!-- saucelabs -->
-		<dependency>
+		<!-- dependency>
 			<groupId>com.saucelabs</groupId>
 			<artifactId>sauce_testng</artifactId>
 			<version>1.0.9</version>
@@ -92,7 +92,7 @@
 			<artifactId>sauce-connect</artifactId>
 			<version>3.0.18</version>
 			<scope>test</scope>
-		</dependency>
+		</dependency -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
