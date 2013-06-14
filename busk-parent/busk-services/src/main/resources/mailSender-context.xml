@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+   
+   	<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+	  <property name="corePoolSize" value="5" />
+	  <property name="maxPoolSize" value="10" />
+	  <property name="queueCapacity" value="25" />
+	</bean>
+	
+   <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+
+	<property name="host" > 
+		<jee:jndi-lookup jndi-name="java:comp/env/mail/serverUrl" />
+	</property>
+	<property name="port"> 
+		<jee:jndi-lookup jndi-name="java:comp/env/mail/serverPort" />
+	</property>
+	<property name="username">
+		<jee:jndi-lookup jndi-name="java:comp/env/mail/serverUser" />
+	</property>
+	<property name="password">
+		<jee:jndi-lookup jndi-name="java:comp/env/mail/serverPassword" />
+	</property>
+	
+	<property name="javaMailProperties">
+		<props>
+           	<prop key="mail.smtp.auth">true</prop>
+           	<prop key="mail.smtp.starttls.enable">true</prop>
+       	</props>
+	</property>
+			
+   </bean>
+
+   <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+      <property name="velocityProperties">
+         <value>
+            resource.loader=class
+            class.resource.loader.class=org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+             dateToolAttribute=org.apache.velocity.tools.generic.DateTool 
+         </value>
+      </property>
+   </bean>
+   
+   
+
+</beans>
