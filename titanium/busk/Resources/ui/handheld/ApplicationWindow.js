@@ -1,16 +1,22 @@
 //Application Window Component Constructor
 function ApplicationWindow() {
 	//load component dependencies
-	var FirstView = require('ui/common/FirstView');
-		
+	var Menu = require('ui/common/MenuView');
+	var CargaView = require('ui/common/CargaView');
+	var menuView=new Menu();
+	var cargaView=new CargaView();	
 	//create component instance
 	var self = Ti.UI.createWindow({
 		backgroundColor:'#ffffff'
 	});
 		
-	//construct UI
-	var firstView = new FirstView();
-	self.add(firstView);
+	
+	menuView.show();
+	menuView.cargarView=cargaView;
+	
+    cargaView.hide();
+    self.add(menuView);
+	self.add(cargaView);
 	
 	return self;
 }
