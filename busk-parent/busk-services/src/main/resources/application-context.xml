@@ -77,7 +77,7 @@
 <!--		<property name="url" value="#{ 'jdbc:'+ @databaseType +':' + (  @dbUrl.getHost() == 'mem' ? '' : '//' ) + @dbUrl.getHost() + ':' + (  @dbUrl.getPort() != 0 ? @dbUrl.getPort() : '' )  + @dbUrl.getPath() }" />-->
 		<property name="url" value="jdbc:hsqldb:mem:busk" />
 		<property name="username" value="sa" />
-		<property name="password" value="blank" />
+		<property name="password" value="" />
 <!--		<property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }" />-->
 <!--		<property name="password" value="#{ ( @dbUrl.getUserInfo().split(':')[1] == 'blank' ? '': @dbUrl.getUserInfo().split(':')[1] ) }" />-->
 	</bean>

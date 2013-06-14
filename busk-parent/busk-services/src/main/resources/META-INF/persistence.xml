@@ -4,8 +4,8 @@
                 version="1.0">
 
         <persistence-unit name="persistence-unit" transaction-type="RESOURCE_LOCAL">
-        		  <class>com.gl.todolist.domain.User</class>
-        		  <class>com.gl.todolist.domain.Task</class>
+        		  <class>com.gl.busk.domain.Punto</class>
+        		  <class>com.gl.busk.domain.Linea</class>
 				  <properties>
                         <property name="hibernate.hbm2ddl.auto" value="create-drop" />
                 </properties>
