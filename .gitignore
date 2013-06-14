@@ -1,1 +1,24 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Eclipse Files #
+.classpath
+.project
+*.prefs
+*.component
+*.core.xml
+.externalToolBuilders
+
+
+# Logs #
+*.log*
+
+/*/target/
+/*/*/target/
 target/
+
+context.xml
